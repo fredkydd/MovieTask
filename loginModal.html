@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./loginModal.css" />
+    <title>Sign in</title>
+  </head>
+  <body>
+    <article>
+      <h1>Please Log In!</h1>
+      <form method="post" class="logInPage">
+        <label for="email0">Your email:</label>
+        <input
+          type="email"
+          name="email0"
+          id="email0"
+          placeholder="example@email.com"
+          required
+        />
+        <label for="password0">Your Password:</label>
+        <input
+          type="password"
+          name="password0"
+          id="password0"
+          placeholder="🫣"
+          required
+        />
+        <button type="submit" class="logIn" onclick="logIn(event)">
+          Log In
+        </button>
+      </form>
+
+      <section>
+        <button class="signUp">Sign Up</button>
+        <dialog>
+          <h1>Please Sign Up!</h1>
+          <form method="post" class="signUpPage">
+            <label for="email1">Your Email:</label>
+            <input
+              type="email"
+              name="email1"
+              id="email1"
+              placeholder="example@email.com"
+              required
+            />
+            <label for="name0">Your Name:</label>
+            <input
+              type="text"
+              name="name0"
+              id="name0"
+              placeholder="illusion"
+              required
+            />
+            <label for="password1">Your Password:</label>
+            <input
+              type="password"
+              name="password1"
+              id="password1"
+              placeholder="🫣"
+              required
+            />
+            <button type="submit" onclick="singUP(event)">Sign Up</button>
+          </form>
+          <button class="close">Close</button>
+        </dialog>
+      </section>
+    </article>
+
+    <!-- !External Script -->
+    <script async src="./loginModal.js"></script>
+  </body>
+</html>
