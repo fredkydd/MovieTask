@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
+/* $grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+); */
+
 *,
 *::before,
 *::after {
@@ -7,7 +16,7 @@
   text-decoration: none;
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style-type: none;
 }
 
 a {
@@ -17,7 +26,7 @@ a {
 body {
   background-image: url('./assets/Arcane6.webp');
   background-size: cover;
-  object-fit: cover;
+  background-position: center;
   font: clamp(0.5rem, 1rem, 1.5rem) 'Roboto', sans-serif;
   color: #fff;
   height: 100dvh;
@@ -30,10 +39,14 @@ nav {
   display: grid;
   grid: auto-flow dense 1fr / 4rem 1fr repeat(2, minmax(100px, 130px));
   gap: 1rem;
+
+  & > * {
+    padding: 1rem;
+  }
 }
 
-nav > * {
-  padding: 1rem;
+.hiddenToggleButton {
+  display: none;
 }
 
 .leftSide {
@@ -45,7 +58,7 @@ nav > * {
   -webkit-backdrop-filter: blur(5px);
   -moz-backdrop-filter: blur(5px);
   -o-backdrop-filter: blur(5px);
-  margin-right: 65%;
+  margin-right: 20dvw;
 }
 
 .dropdownContent,
@@ -119,7 +132,7 @@ nav > * {
     .arcane6,
     .arcane7
   ) {
-  width: 17rem;
+  width: 14rem;
   height: 7rem;
   object-fit: cover;
   border-radius: 0.3125rem;
@@ -134,6 +147,7 @@ nav > * {
     top: 30%;
     left: 5%;
     z-index: 1;
+    cursor: pointer;
   }
 
   & .rightTopIcon {
@@ -141,6 +155,7 @@ nav > * {
     top: 30%;
     right: 5%;
     z-index: 1;
+    cursor: pointer;
   }
 }
 
@@ -148,6 +163,7 @@ nav > * {
   position: relative;
   display: grid;
   grid: 1fr / repeat(4, minmax(100px, 1fr));
+  gap: 1rem;
   justify-items: center;
   margin: 0 5%;
 
@@ -157,7 +173,7 @@ nav > * {
     justify-items: center;
   }
 
-  & :is(.article4, & .article5) {
+  & :is(.article4, .article5) {
     display: none;
   }
 }
@@ -171,6 +187,7 @@ nav > * {
     top: 30%;
     left: 5%;
     z-index: 1;
+    cursor: pointer;
   }
 
   & .rightBottomIcon {
@@ -178,12 +195,14 @@ nav > * {
     top: 30%;
     right: 5%;
     z-index: 1;
+    cursor: pointer;
   }
 }
 
 .slideBottom {
   display: grid;
   grid: 1fr / repeat(4, minmax(100px, 1fr));
+  gap: 1rem;
   justify-items: center;
   margin: 0 5%;
 
@@ -193,7 +212,313 @@ nav > * {
     justify-items: center;
   }
 
-  & :is(.article2, & .article3) {
+  & :is(.article2, .article3) {
     display: none;
+  }
+}
+
+/* !R E S P O N S I V E */
+@media screen and (768px < width <= 992px) {
+  .leftSide {
+    display: grid;
+    grid: auto-flow dense 1fr / repeat(3, minmax(100px, 1fr));
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -o-backdrop-filter: blur(5px);
+    margin-right: 5dvw;
+  }
+
+  .slideTopParent {
+    width: 100%;
+    position: relative;
+
+    & .leftTopIcon {
+      position: absolute;
+      top: 5dvh;
+      left: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    & .rightTopIcon {
+      position: absolute;
+      top: 5dvh;
+      right: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+  .slideTop {
+    position: relative;
+    display: grid;
+    grid: 1fr / repeat(3, minmax(100px, 1fr));
+    gap: 0.3125rem;
+    justify-items: center;
+    margin: 0 5%;
+
+    & article {
+      display: grid;
+      grid: 3fr 1fr / auto-flow dense 1fr;
+      justify-items: center;
+    }
+
+    & :is(.article3, .article4, .article5) {
+      display: none;
+    }
+  }
+
+  .slideBottom {
+    display: grid;
+    grid: 1fr / repeat(3, minmax(100px, 1fr));
+    gap: 0.3125rem;
+    justify-items: center;
+    margin: 0 5%;
+
+    & article {
+      display: grid;
+      grid: 3fr 1fr / auto-flow dense 1fr;
+      justify-items: center;
+    }
+
+    & :is(.article2, .article3, .article4) {
+      display: none;
+    }
+  }
+
+  .slideBottomParent {
+    width: 100%;
+    position: relative;
+
+    & .leftBottomIcon {
+      position: absolute;
+      top: 5dvh;
+      left: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    & .rightBottomIcon {
+      position: absolute;
+      top: 5dvh;
+      right: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+}
+
+/* ! md 768 */
+@media screen and (576px < width <= 768px) {
+  nav {
+    margin: 4rem 4rem 10rem;
+    width: inherit;
+    display: grid;
+    grid: auto-flow dense 1fr / 4rem 2rem;
+    gap: 1rem;
+
+    & > * {
+      padding: 1rem;
+    }
+  }
+
+  .leftSide,
+  .watchlist,
+  .signIn {
+    display: none;
+  }
+
+  .hiddenToggleButton {
+    display: block;
+    cursor: pointer;
+    margin-left: 65dvw;
+  }
+
+  .slideTopParent {
+    width: 100%;
+    position: relative;
+
+    & .leftTopIcon {
+      position: absolute;
+      top: 5dvh;
+      left: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    & .rightTopIcon {
+      position: absolute;
+      top: 5dvh;
+      right: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+  .slideTop {
+    position: relative;
+    display: grid;
+    grid: 1fr / repeat(2, minmax(100px, 1fr));
+    gap: 0.3125rem;
+    justify-items: center;
+    margin: 0 5%;
+
+    & article {
+      display: grid;
+      grid: 3fr 1fr / auto-flow dense 1fr;
+      justify-items: center;
+    }
+
+    & :is(.article2, .article3, .article4, .article5) {
+      display: none;
+    }
+  }
+
+  .slideBottom {
+    display: grid;
+    grid: 1fr / repeat(2, minmax(100px, 1fr));
+    gap: 0.3125rem;
+    justify-items: center;
+    margin: 0 5%;
+
+    & article {
+      display: grid;
+      grid: 3fr 1fr / auto-flow dense 1fr;
+      justify-items: center;
+    }
+
+    & :is(.article2, .article3, .article4, .article5) {
+      display: none;
+    }
+  }
+
+  .slideBottomParent {
+    width: 100%;
+    position: relative;
+
+    & .leftBottomIcon {
+      position: absolute;
+      top: 5dvh;
+      left: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    & .rightBottomIcon {
+      position: absolute;
+      top: 5dvh;
+      right: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+}
+
+/* ! sm 576 */
+@media screen and (width <= 576px) {
+  nav {
+    margin: 4rem 4rem 10rem;
+    width: inherit;
+    display: grid;
+    grid: auto-flow dense 1fr / 4rem 2rem;
+    gap: 1rem;
+
+    & > * {
+      padding: 1rem;
+    }
+  }
+
+  .leftSide,
+  .watchlist,
+  .signIn {
+    display: none;
+  }
+
+  .hiddenToggleButton {
+    display: block;
+    cursor: pointer;
+    margin-left: 65dvw;
+  }
+
+  .slideTopParent {
+    width: 100%;
+    position: relative;
+
+    & .leftTopIcon {
+      position: absolute;
+      top: 5dvh;
+      left: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    & .rightTopIcon {
+      position: absolute;
+      top: 5dvh;
+      right: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+  .slideTop {
+    position: relative;
+    display: grid;
+    grid: 1fr / minmax(100px, 1fr);
+    gap: 0.3125rem;
+    justify-items: center;
+    margin: 0 5%;
+
+    & article {
+      display: grid;
+      grid: 3fr 1fr / auto-flow dense 1fr;
+      justify-items: center;
+    }
+
+    & :is(.article1, .article2, .article3, .article4, .article5) {
+      display: none;
+    }
+  }
+
+  .slideBottom {
+    display: grid;
+    grid: 1fr / minmax(100px, 1fr);
+    gap: 0.3125rem;
+    justify-items: center;
+    margin: 0 5%;
+
+    & article {
+      display: grid;
+      grid: 3fr 1fr / auto-flow dense 1fr;
+      justify-items: center;
+    }
+
+    & :is(.article2, .article3, .article4, .article5, .article6) {
+      display: none;
+    }
+  }
+
+  .slideBottomParent {
+    width: 100%;
+    position: relative;
+
+    & .leftBottomIcon {
+      position: absolute;
+      top: 5dvh;
+      left: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    & .rightBottomIcon {
+      position: absolute;
+      top: 5dvh;
+      right: 5%;
+      z-index: 1;
+      cursor: pointer;
+    }
   }
 }
